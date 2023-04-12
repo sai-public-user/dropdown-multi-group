@@ -1,0 +1,5 @@
+<div *ngFor="let item of groupOptions | keyvalue">
+  <div class="category-header">{{item.key}}</div>
+  <app-option-item *ngFor="let option of item.value; let i = index; last as isLast" [isMulti]="isMulti"
+    [option]="option" [isLast]="isLast" [onChange]="onChange" [selectedOptions]="selectedOptions"></app-option-item>
+</div>

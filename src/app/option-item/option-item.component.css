@@ -1,0 +1,14 @@
+.option-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.option-label {
+  font-style: italic;
+}
+
+.divider {
+  border-bottom: 1px solid #cccccc;
+}

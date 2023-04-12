@@ -1,0 +1,25 @@
+<div class="custom-select">
+  <div class="select-input" (click)="toggleMenu()">
+    <div>{{placeholder}}</div>
+    <i class="arrow" [ngClass]="openMenu ? 'up' : 'down'"></i>
+  </div>
+  <div class="option-items" *ngIf="openMenu">
+    <div class="select-all" *ngIf="isMulti">
+      <label>
+        <input type="checkbox" value="all" (click)="onSelectAll($event)" [checked]="selectAllChecked" />
+        Select All
+      </label>
+    </div>
+    <div class="options" *ngIf="!groupBy">
+      <app-option-item *ngFor="let option of options; let i = index; last as isLast" [isMulti]="isMulti"
+        [option]="option" [isLast]="isLast" [onChange]="onChange" [selectedOptions]="selectedOptions"></app-option-item>
+    </div>
+    <div class="options" *ngIf="!!groupBy">
+      <app-group-item [groupOptions]="groupOptions" [isMulti]="isMulti" [onChange]="onChange"
+        [selectedOptions]="selectedOptions"></app-group-item>
+    </div>
+    <div class="action-items" *ngIf="!!actions">
+      <button class="action-btn" *ngFor="let action of actions" (click)="action.onClick">{{action.btnLabel}}</button>
+    </div>
+  </div>
+</div>

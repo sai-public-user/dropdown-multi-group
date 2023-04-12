@@ -1,0 +1,11 @@
+<div class="option-item" (click)="onOptionClicked(option.value, option)">
+  <label>
+    <input *ngIf="isMulti" type="checkbox" [value]="option.value" [checked]="isChecked" />
+    {{option.label}}
+  </label>
+  <div *ngIf="!!option.count || !!option.subLabel" class="option-label">
+    <label *ngIf="!!option.count">{{option.count}} items</label>
+    <label *ngIf="!option.count && !!option.subLabel">{{option.subLabel}}</label>
+  </div>
+</div>
+<div *ngIf="!isLast" class="divider"></div>
